@@ -155,6 +155,7 @@ jobs:
     steps:
       - uses: actions/deploy-pages@v4
 
+```
 ---
 
 ## 🚀 Преимущества
