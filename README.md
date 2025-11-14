@@ -129,7 +129,8 @@ EV Software Service Hub — это **фронтенд-витрина для бу
 
 ---
 
-# .github/workflows/pages.yml (фрагмент)
+### 📜 .github/workflows/pages.yml (фрагмент)
+```yaml
 on:
   push:
     branches: [main]
