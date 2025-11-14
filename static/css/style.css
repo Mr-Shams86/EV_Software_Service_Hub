@@ -1,0 +1,988 @@
+/* =========================================================
+  EV Software Service Hub — TRON ARES Edition
+   ========================================================= */
+
+/* === БАЗА ================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+
+:root{
+  --ares-bg:#020005; --ares-panel:#070008; --ares-red:#ff1744; /* основной красный */
+  --ares-red-soft:rgba(255,23,68,.16); --ares-red-soft2:rgba(255,23,68,.06); /* мягкий красный */
+  --ares-red-bright:#ff335d; --ares-text-main:#fff; --ares-text-soft:#f8b8c7; /* основной текст и мягкий текст */
+  --ares-accent:#ff9f2f; --ares-danger:#ff4b81; /* акцентный и опасный цвета */
+
+  --slide-step-y:107%; /* шаг слайда по Y для мобилки */
+  --slide-step-x:107%; /* шаг слайда по Y и X для мобилки */
+
+  /* Навбар и аватары */
+  --brand-logo:65px;                       /* базовый размер лого */
+  --nav-h: calc(var(--brand-logo) + 16px); /* высота для scroll-margin */
+  --avatar-sz: clamp(56px, 6.5vh, 86px); /* базовый размер аватаров */
+  --avatar-gap: clamp(10px, 2.3vh, 18px); /* базовый отступ между аватарами */
+  --avatar-pad: 3px;                      /* базовый паддинг внутри аватаров */
+
+   /* Габариты контейнера машины и базовый масштаб */
+  --car-w: clamp(680px, 56vw, 980px); /* базовая ширина машины */
+  --car-h: clamp(420px, 62vh, 640px); /* базовая высота машины */
+  --car-scale: 1;               /* базовый масштаб машины */
+  --car-translate-y: 0px;       /* базовый сдвиг по Y */
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Montserrat',sans-serif;
+}
+
+html,
+body{
+  max-width:100%;
+  overflow-x:hidden;
+  background:var(--ares-bg);
+  color:var(--ares-text-main);
+  scroll-behavior:smooth;
+  padding-right:env(safe-area-inset-right);
+  padding-left: env(safe-area-inset-left);
+}
+
+[id]{
+  scroll-margin-top: calc(var(--nav-h) + 16px);
+}
+
+/* === HERO / КАРУСЕЛЬ ===================================== */
+
+.carousel{
+  position:relative;
+  isolation:isolate;
+  height:100svh;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at top, #1a0009 0, #050006 40%, #000 100%);
+}
+
+/* неоновая решётка, приглушённая */
+.carousel::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(to right, rgba(255,23,68,.05) 1px, transparent 1px),
+    linear-gradient(to top,   rgba(255,23,68,.04) 1px, transparent 1px);
+  background-size:90px 90px;
+  opacity:.18;
+  mix-blend-mode:screen;
+  pointer-events:none;
+  z-index:0;
+}
+
+/* мягкая дымка по краям */
+.carousel::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:1;
+  background:
+    radial-gradient(120% 80% at 0% 0%,    rgba(255,23,68,.08), transparent 60%),
+    radial-gradient(120% 80% at 100% 0%,  rgba(255,23,68,.04), transparent 60%),
+    radial-gradient(140% 90% at 100% 100%,rgba(255,255,255,.02), transparent 70%),
+    radial-gradient(140% 90% at 0% 100%,  rgba(255,23,68,.05), transparent 70%);
+  box-shadow: inset 0 0 160px rgba(0,0,0,.96);
+}
+
+/* Слайды */
+
+.carousel > .item{
+  position:absolute;
+  inset:0;
+  height:100%;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .45s ease;
+}
+.carousel > .item.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+/* === ТЕКСТ HERO ========================================== */
+
+.item .info-box{
+  position:absolute;
+  left:5%;
+  top:50%;
+  transform:translateY(-50%);
+  width:450px;
+  height:280px;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+  z-index:6;
+}
+
+.info-box .info-slider{
+  height:inherit;
+}
+
+.info-slider .info-item{
+  height:inherit;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  color:var(--ares-text-main);
+}
+
+.info-item h2{
+  font-size:40px;
+  line-height:1;
+  color:var(--ares-red);
+  text-shadow:
+    0 0 12px rgba(255,23,68,.6),
+    0 0 30px rgba(255,23,68,.25);
+}
+
+.info-item p{
+  font-size:16px;
+  margin:15px 0 20px;
+  color:var(--ares-text-soft);
+}
+
+.info-item code{
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  color:var(--ares-red-bright);
+  font-size:.9em;
+}
+
+/* CTA-кнопка */
+
+.info-item .btn{
+  position:relative;
+  z-index:7;
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  padding:0 22px;
+  width:190px;
+  height:48px;
+  background:rgba(0,0,0,.65);
+  border-radius:40px;
+  border:2px solid var(--ares-red);
+  font-size:15px;
+  color:var(--ares-red-bright);
+  font-weight:600;
+  letter-spacing:.3px;
+  text-decoration:none;
+  box-shadow:
+    0 0 14px rgba(255,23,68,.4),
+    0 0 40px rgba(255,23,68,.18);
+  transition:all .22s ease;
+}
+.info-item .btn::before{
+  content:none !important;
+}
+.info-item .btn:hover{
+  background:
+    radial-gradient(circle at 0 0, rgba(255,23,68,.26), transparent 75%);
+  color:#020005;
+  box-shadow:
+    0 0 26px rgba(255,23,68,.8),
+    inset 0 0 18px rgba(255,23,68,.35);
+}
+.info-item .btn:focus-visible{
+  outline:2px solid var(--ares-red);
+  outline-offset:3px;
+  border-radius:999px;
+}
+
+/* === МАШИНА ============================================= */
+
+/* Десктоп: машина крупнее, но не ломает текст слева */
+.item .img-box{
+  position:absolute;
+  left:42%;                      /* чуть правее — больше места под текст */
+  top:52%;
+  transform:translateY(-50%);
+  width:var(--car-w);            /* сделаем крупнее */
+  height:var(--car-h);           /* сделаем крупнее */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:visible;              /* позволяем тени выйти за блок */
+  pointer-events:none;
+  z-index:5;
+}
+
+/* Картинка машины (база) */
+.img-item img{
+  --car-transform: scale(var(--car-scale)) translateY(var(--car-translate-y));
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+  pointer-events:none;
+  opacity:0;
+  transform:var(--car-transform);
+  filter:
+    drop-shadow(0 26px 48px rgba(0,0,0,.98))
+    drop-shadow(0 0 32px rgba(255,0,72,.25));
+  transition: transform .4s ease, opacity .4s ease, filter .25s ease;
+}
+
+/* При активном слайде — плавно к базовым значениям */
+.item.active .img-item img{
+  opacity:1;
+}
+
+/* ====== Individual model fine-tuning (TRON ARES) ====== */
+
+/* Zeekr 001 — немного крупнее */
+.item[data-model="zeekr_001"]                    { --car-scale: 1.25; --car-translate-y: -2px; }
+
+/* Avatr 12 Ultra — немного крупнее */
+.item[data-model="huawei_avatr_12_gibrid_ultra"] { --car-scale: 1.40; --car-translate-y: -2px; }
+
+/* Voyah Free Apollo Tech — SUV, можно тоже слегка усилить */
+.item[data-model="voyah_free_apollo_tech_hybrid"]{ --car-scale: 1.40; --car-translate-y: -2px; }
+
+/* BYD Yuan UP 2025 */
+.item[data-model="byd_yuan_up_smart"]            { --car-scale: 1.25; --car-translate-y: -2px; }
+
+/* Leapmotor C16 Hybrid */
+.item[data-model="leapmotor_C16_hybrid"]         { --car-scale: 1.25; --car-translate-y: -2px; }
+
+/* Li Auto L9 Ultra */
+.item[data-model="li_9_ultra"]                   { --car-scale: 1.0.1; --car-translate-y: -2px; }
+
+
+/* === АВАТАРЫ (ТАБЛО СПРАВА) ============================= */
+
+.avatar{
+  position:absolute;
+  right:max(10px, env(safe-area-inset-right) + 8px);
+  top:50%;
+  transform:translateY(-50%);
+  list-style:none;
+  z-index:8;
+}
+
+.avatar li{
+  width:var(--avatar-sz);
+  height:var(--avatar-sz);
+  margin:var(--avatar-gap) 0;
+  border-radius:50%;
+  padding:var(--avatar-pad);
+  background:
+    radial-gradient(circle at 30% 0, rgba(255,23,68,.22), transparent),
+    radial-gradient(circle at 70% 100%, rgba(255,23,68,.08), transparent);
+  box-shadow:0 0 calc(var(--avatar-sz) * .14) rgba(255,23,68,.25);
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.avatar li img{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  object-fit:cover;
+}
+.avatar li.selected{
+  box-shadow:
+    0 0 calc(var(--avatar-sz) * .32) rgba(255,23,68,.90),
+    0 0 calc(var(--avatar-sz) * .52) rgba(255,23,68,.45);
+  outline:2px solid var(--ares-red);
+  outline-offset:3px;
+  transform:translateY(-1px);
+}
+.avatar li:hover:not(.selected){
+  box-shadow:0 0 calc(var(--avatar-sz) * .22) rgba(255,23,68,.60);
+  transform:translateY(-1px);
+}
+
+/* === КАРУСЕЛЬ КАРТИНОК МАШИН ============================ */
+
+.img-box .img-slider{
+  width:100%;
+  height:100%;
+}
+.img-slider .img-item{
+  width:100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+
+/* === MODAL =============================================== */
+
+.modal{
+  position:fixed;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:clamp(12px, 4vw, 40px);
+  background:radial-gradient(120% 100% at 50% 0, rgba(0,0,0,.8), rgba(0,0,0,.96));
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .25s ease, visibility .25s ease;
+  z-index:999;
+}
+.modal.open{
+  opacity:1;
+  visibility:visible;
+}
+.modal__backdrop{
+  position:absolute;
+  inset:0;
+}
+
+.modal__dialog{
+  position:relative;
+  width:min(720px,92vw);
+  max-height:80vh;
+  overflow:auto;
+  background:rgba(5,0,8,.98);
+  border:1px solid rgba(255,23,68,.24);
+  border-radius:20px;
+  box-shadow:0 40px 140px rgba(0,0,0,.9),
+             inset 0 0 120px rgba(255,23,68,.16);
+  padding:24px 28px;
+  color:var(--ares-text-main);
+}
+
+.modal__dialog h3{
+  font-size:clamp(22px,2.2vw,28px);
+  margin:0 0 10px;
+  color:var(--ares-red-bright);
+}
+
+.modal__dialog p,
+.modal__dialog li{
+  font-size:15px;
+  line-height:1.6;
+  color:var(--ares-text-soft);
+}
+
+.modal__dialog ul{
+  margin:10px 0 0 18px;
+}
+
+.modal__dialog .credit.small{
+  margin-top:10px;
+  font-size:12px;
+  opacity:.9;
+}
+
+/* ссылки внутри модалки (кроме кнопки) */
+.modal__dialog a:not(.modal__link){
+  color:var(--ares-red-bright);
+  text-decoration:underline;
+  text-underline-offset:2px;
+  text-decoration-thickness:1px;
+}
+.modal__dialog a:not(.modal__link):visited{
+  color:var(--ares-red-bright);
+}
+.modal__dialog a:not(.modal__link):hover{
+  color:#ffd5e1;
+  text-decoration-color:#ffd5e1;
+}
+.modal__dialog a:not(.modal__link):focus-visible{
+  outline:2px solid var(--ares-red-bright);
+  outline-offset:2px;
+  border-radius:4px;
+}
+
+.modal__dialog .credit.small a{
+  opacity:1;
+}
+
+.modal__close{
+  position:absolute;
+  top:10px;
+  right:12px;
+  font-size:28px;
+  line-height:1;
+  background:transparent;
+  color:var(--ares-danger);
+  border:0;
+  cursor:pointer;
+}
+
+.modal__link{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-top:14px;
+  padding:10px 14px;
+  border-radius:999px;
+  border:1px solid var(--ares-red-bright);
+  text-decoration:none;
+  color:var(--ares-red-bright);
+}
+
+/* === TOP NAV / СЕКЦИИ / СОЦСЕТИ ========================= */
+
+.site-nav{
+  position:fixed;
+  left:50%;
+  top:16px;
+  transform:translateX(-50%);
+  width:min(1100px, calc(100vw - 32px));
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:12px 16px;
+  border-radius:18px;
+  background:rgba(5,0,8,.95);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border:1px solid rgba(255,23,68,.35);
+  box-shadow:0 10px 40px rgba(0,0,0,.9);
+  z-index:30;
+}
+
+.site-nav .brand{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  color:var(--ares-red-bright);
+  text-decoration:none;
+}
+.site-nav .brand img{
+  width: var(--brand-logo);
+  height: var(--brand-logo);
+  border-radius:50%;
+  outline: 1px solid rgba(255,23,68,.35);
+  outline-offset: 2px;
+  box-shadow:
+    0 0 14px rgba(255,23,68,.75),
+    0 0 32px rgba(255,23,68,.25);
+}
+
+.site-nav .brand span{
+  font-weight:700;
+  letter-spacing:.2px;
+}
+.site-nav .brand small{
+  opacity:.7;
+  font-size:12px;
+}
+
+.site-nav nav{
+  display:flex;
+  gap:16px;
+  align-items:center;
+}
+.site-nav nav a{
+  color:#ffd5e1;
+  text-decoration:none;
+  opacity:.78;
+  font-size:14px;
+}
+.site-nav nav a:hover{
+  opacity:1;
+  color:var(--ares-red-bright);
+}
+.site-nav nav a:focus-visible{
+  outline:2px solid var(--ares-red-bright);
+  outline-offset:3px;
+  border-radius:10px;
+}
+
+.site-nav .btn-nav{
+  padding:8px 14px;
+  border:1px solid rgba(255,23,68,.6);
+  border-radius:999px;
+}
+
+/* Бургер по умолчанию скрыт; включаем на мобиле */
+
+.nav-toggle{
+  display:none;
+  line-height:1;
+  overflow:hidden;
+}
+.nav-toggle__bars{
+  display:block;
+}
+
+/* Основные секции */
+
+main section{
+  min-height:50vh;
+  padding:100px 5% 60px;
+  max-width:1100px;
+  margin:0 auto;
+}
+main h2{
+  color:var(--ares-red-bright);
+  font-size:28px;
+  margin-bottom:12px;
+}
+main p,
+main li{
+  color:var(--ares-text-soft);
+  opacity:.9;
+}
+main ul{
+  padding-left:18px;
+  line-height:1.7;
+}
+
+/* Соцсети */
+
+.socials{
+  list-style:none;
+  padding:0;
+  margin:16px auto 0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:nowrap;
+  gap:18px;
+  max-width:100%;
+}
+.socials .social{
+  display:grid;
+  place-items:center;
+  width:clamp(44px,10vw,52px);
+  height:clamp(44px,10vw,52px);
+  border:2px solid var(--ares-red-bright);
+  border-radius:999px;
+  color:var(--ares-red-bright);
+  text-decoration:none;
+  transition:transform .2s ease, box-shadow .2s ease, background-color .2s ease, color .2s ease;
+}
+.socials .social i{
+  font-size:24px;
+  line-height:1;
+}
+.socials .social:hover,
+.socials .social:focus-visible{
+  transform:translateY(-2px);
+  box-shadow:0 0 16px 2px rgba(255,23,68,.5),
+             inset 0 0 14px 2px rgba(255,23,68,.5);
+  color:#080006;
+  background:var(--ares-red-bright);
+  outline:none;
+}
+
+/* Доступность */
+
+.sr-only{
+  position:absolute !important;
+  width:1px;
+  height:1px;
+  padding:0;
+  margin:-1px;
+  overflow:hidden;
+  clip:rect(0 0 0 0);
+  white-space:nowrap;
+  border:0;
+}
+
+/* ====== Адаптив под крупные машины ========================= */
+
+/* Очень широкие/высокие экраны — можно чуть крупнее */
+
+@media (min-width:1600px){
+  :root{ 
+    --avatar-sz: clamp(80px, 7.4vh, 112px); 
+    --avatar-gap: clamp(16px, 2.8vh, 24px); }
+}
+
+@media (min-width:1400px) and (min-height:900px){
+  :root{
+    --avatar-sz: clamp(68px, 7vh, 96px);
+    --avatar-gap: clamp(14px, 2.6vh, 22px);
+  }
+}
+
+/* 1200–1399 — стандартный десктоп */
+@media (max-width:1399px){
+  :root{
+    --avatar-sz: clamp(58px, 6.2vh, 80px);
+    --avatar-gap: clamp(12px, 2.2vh, 18px);
+  }
+}
+
+@media (min-width:1201px){
+  :root{
+    --car-w: clamp(920px, 70vw, 1280px);
+    --car-h: clamp(520px, 74vh, 860px);
+    --car-scale: 1.08;          /* увеличиваем на десктопах */
+    --car-translate-y: -2px;
+  }
+  .item .img-box{
+    left:25%; 
+    top:50%; 
+    transform:translateY(-50%);
+  }
+  .item .bg::before{ left:56%; top:62%; width:640px; height:640px; filter:blur(52px); }
+}
+
+/* 992–1199 — ноутбуки/небольшие десктопы */
+@media (max-width:1199px){
+  :root{
+    --avatar-sz: clamp(52px, 6vh, 72px);
+    --avatar-gap: clamp(10px, 2vh, 16px);
+  }
+  .avatar{ right:max(8px, env(safe-area-inset-right) + 6px); }
+}
+
+/* 768–991 — планшеты */
+@media (max-width:991px){
+  :root{
+    --avatar-sz: clamp(46px, 5.8vh, 64px);
+    --avatar-gap: clamp(10px, 1.9vh, 14px);
+  }
+  .avatar{ top:52%; }
+}
+
+/* Планшеты 769–1200: центрируем и слегка ужимаем бокс машины */
+@media (min-width:769px) and (max-width:1200px){
+  :root{
+    --car-w: clamp(640px, 70vw, 960px);
+    --car-h: clamp(420px, 64vh, 660px);
+    --car-scale: 1.02;
+  }
+  .img-item img{
+    --car-transform: scale(var(--car-scale)) translateY(var(--car-translate-y));
+  }
+
+  .item .img-box{
+    left:52%;
+    top:54%;
+    transform:translate(-50%, -50%);
+  }
+}
+
+/* Мобила — центр, крупно, но под текстом и не клипает */
+@media (max-width: 768px){
+  :root{
+    --car-w: min(100vw, 560px);
+    --car-h: min(52vh, 400px);
+    --car-scale: 0.98;              /* без доп. увеличения, чтобы не клипало */
+    --car-translate-y: 2px;
+  }
+
+  /* точечные тюнинги */
+  .item[data-model="li_9_ultra"]{
+    --car-scale: 1.15;        
+    --car-translate-y: 0px;
+  }
+  .item[data-model="huawei_avatr_12_gibrid_ultra"]{
+    --car-scale: 1.35;        
+    --car-translate-y: -2px;
+  }
+  .item[data-model="zeekr_001"]{
+    --car-scale: 1.25;
+    --car-translate-y: 0px;
+  }
+
+  .item[data-model="byd_yuan_up_smart"]{
+    --car-scale: 1.25;
+    --car-translate-y: 0px;
+  }
+
+  .item[data-model="leapmotor_C16_hybrid"]{
+    --car-scale: 1.15;
+    --car-translate-y: 0px;
+  }
+
+  .item[data-model="voyah_free_apollo_tech_hybrid"]{
+    --car-scale: 1.35;
+    --car-translate-y: 0px;
+  }
+
+  .item .img-box{
+    left:50%;
+    top:60%;
+    transform:translate(-50%, -50%);
+  }
+
+  .item .info-box{
+    left:6vw;
+    top:calc(var(--nav-h) + 16px);
+    width:88vw;
+    height:auto;
+    transform:none;
+  }
+
+  .img-item img{
+    --car-transform: scale(var(--car-scale)) translateY(var(--car-translate-y));
+  }   
+}
+
+.img-box .img-slider{
+  width:100%;
+  height:100%;
+}
+
+.img-slider .img-item{
+  width:100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* Подсветка под авто */
+
+.item .bg{
+  position:absolute;
+  inset:0;
+  background:transparent;
+  z-index:0;
+}
+.item .bg::before{
+  content:'';
+  position:absolute;
+  left:55%;
+  top:60%;
+  transform:translate(-50%,-50%);
+  width:520px;
+  height:520px;
+  background:
+    radial-gradient(circle, rgba(255,23,68,.22) 0, transparent 70%);
+  border-radius:50%;
+  filter:blur(42px);
+  opacity:.95;
+}
+
+/* 480–767 — большие телефоны */
+@media (max-width:767px){
+  :root{
+    --avatar-sz: clamp(36px, 6vw, 50px);
+    --avatar-gap: clamp(8px, 2.6vw, 12px);
+    --avatar-pad: 2px;
+  }
+  .avatar{ top:55%; }
+}
+
+/* Низкие по высоте экраны (например, landscape на мобильных) */
+@media (max-height:700px){
+  :root{
+    --avatar-sz: clamp(32px, 5.2vh, 44px);
+    --avatar-gap: clamp(6px, 1.8vh, 10px);
+  }
+  .avatar{ top:54%; }
+}
+
+/* Мобильный бургер + меню */
+
+@media (max-width:640px){
+  :root{
+    --brand-logo: 32px;
+    --slide-step-y: 106%;
+    --slide-step-x: 106%;
+    --nav-h: 96px;
+  }
+
+  .site-nav{
+    padding-block:12px 14px;
+    inset:12px 16px auto 16px;
+    transform:none;
+    width:auto;
+  }
+
+  .nav-toggle{
+    display:grid;
+    place-items:center;
+    width:42px;
+    height:42px;
+    margin-left:10px;
+    border:1px solid rgba(255,23,68,.6);
+    border-radius:12px;
+    background:rgba(5,0,8,.98);
+    backdrop-filter:blur(8px);
+    cursor:pointer;
+    z-index:26;
+  }
+
+  .nav-toggle__bars{
+    position:relative;
+    width:20px;
+    height:2px;
+    background:#ffe5ee;
+    border-radius:2px;
+  }
+  .nav-toggle__bars::before,
+  .nav-toggle__bars::after{
+    content:"";
+    position:absolute;
+    left:0;
+    width:20px;
+    height:2px;
+    background:#ffe5ee;
+    border-radius:2px;
+    transition: transform .2s ease, top .2s ease, opacity .2s ease;
+  }
+  .nav-toggle__bars::before{ top:-6px; }
+  .nav-toggle__bars::after{ top:6px; }
+
+  .site-nav .brand{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    grid-template-rows:auto auto;
+    column-gap:10px;
+    align-items:center;
+  }
+  .site-nav .brand img{ grid-row:1 / span 2; }
+  .site-nav .brand span{
+    display:block;
+    font-size:clamp(13px, 3.6vw, 16px);
+    line-height:1.15;
+    max-width:62vw;
+  }
+  .site-nav .brand small{
+    display:block;
+    margin-top:2px;
+    font-size:clamp(10px, 3vw, 12px);
+    opacity:.75;
+  }
+
+  .site-nav nav{ display:none; }
+
+  .site-nav .nav-menu{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    padding: calc(var(--nav-h) + 12px) 20px max(20px, env(safe-area-inset-bottom));
+    display:grid;
+    gap:14px;
+    background:rgba(2,0,4,.98);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(255,23,68,.3);
+    transform:translateY(-100%);
+    opacity:0;
+    visibility:hidden;
+    transition:transform .22s ease, opacity .22s ease, visibility .22s;
+    z-index:25;
+    max-height:100dvh;
+    overflow-y:auto;
+  }
+
+  .site-nav .nav-menu a{
+    display:block;
+    text-align:center;
+    padding:10px 12px;
+    font-size:16px;
+    color:var(--ares-red-bright);
+    text-decoration:none;
+    border:1px solid rgba(255,23,68,.5);
+    border-radius:12px;
+    background:rgba(8,0,10,.98);
+  }
+  .site-nav .nav-menu a:focus-visible{
+    outline:2px solid #ffe5ee;
+    outline-offset:3px;
+    border-radius:12px;
+  }
+
+  .nav-scrim{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.6);
+    opacity:0;
+    visibility:hidden;
+    transition:opacity .2s, visibility .2s;
+    z-index:24;
+    pointer-events:none;
+  }
+
+  .site-nav.open .nav-menu{
+    transform:translateY(0);
+    opacity:1;
+    visibility:visible;
+  }
+  .site-nav.open .nav-scrim{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+  }
+
+  .site-nav.open .nav-toggle{
+    border-color:rgba(255,23,68,.9);
+    background:rgba(0,0,0,1);
+  }
+  .site-nav.open .nav-toggle__bars{
+    background:transparent;
+  }
+  .site-nav.open .nav-toggle__bars::before{
+    top:0;
+    transform:rotate(45deg);
+  }
+  .site-nav.open .nav-toggle__bars::after{
+    top:0;
+    transform:rotate(-45deg);
+  }
+
+  .item .info-box{
+    top:calc(var(--nav-h) + 12px);
+    transform:none;
+  }
+}
+
+/* компактные соцсети */
+
+@media (max-width:640px){
+  .socials{
+    gap:clamp(8px, 3.6vw, 12px);
+  }
+  .socials .social{
+    width:clamp(36px, 8.5vw, 44px);
+    height:clamp(36px, 8.5vw, 44px);
+  }
+}
+
+/* ≤480 — компактные телефоны */
+@media (max-width:480px){
+  :root{
+    --avatar-sz: clamp(32px, 7vw, 44px);
+    --avatar-gap: clamp(6px, 3vw, 10px);
+    --car-w: min(94vw, 460px);
+    --car-h: min(44vh, 320px);
+  }
+  .item .img-box{
+    top:60%;
+  }
+  .avatar{ top:58%; }
+}
+
+@media (max-width:380px){
+  .site-nav .brand span{
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+  }
+  :root{ --nav-h:104px; }
+}
+
+/* запрет прокрутки при открытом меню/модалке */
+body.no-scroll{
+  height:100vh;
+  overflow:hidden;
+  touch-action:none;
+}
+
+/* Очень компактные соцсети */
+@media (max-width:360px){
+  .socials{
+    gap:10px;
+  }
+  .socials .social{
+    width:34px;
+    height:34px;
+  }
+}
+
+/* Снижение анимаций для пользователей с соответствующими настройками */
+@media (prefers-reduced-motion: reduce){
+  *{ animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+

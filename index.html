@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@4.1.0/dist/model-viewer.min.js"></script>
+
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>EV Software Service Hub | Intelligent EV Diagnostics & Services</title>
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://mr-shams86.github.io/ev-software-service-hub/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="EV Software Service Hub" />
+  <meta property="og:title" content="EV Software Service Hub — Smart EV Software & Diagnostics" />
+  <meta property="og:description"
+        content="Interactive EV showcase: Zeekr 001, Li 9 Ultra, BYD Yuan UP, Voyah Free, Leapmotor C16, Avatr 12. Software diagnostics, telematics, OTA, and fleet-ready tooling." />
+  <meta property="og:url" content="https://mr-shams86.github.io/ev-software-service-hub/" />
+  <meta property="og:image" content="https://mr-shams86.github.io/ev-software-service-hub/static/images/preview.jpg" />
+  <meta property="og:image:secure_url" content="https://mr-shams86.github.io/ev-software-service-hub/static/images/preview.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="EV Software Service Hub preview with electric vehicles" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="EV Software Service Hub — Smart EV Software & Diagnostics" />
+  <meta name="twitter:description"
+        content="Showcase of advanced EV software services and tooling through interactive EV models." />
+  <meta name="twitter:image" content="https://mr-shams86.github.io/ev-software-service-hub/static/images/preview.jpg" />
+  <meta name="twitter:image:alt" content="EV Software Service Hub preview with electric vehicles" />
+
+  <!-- Basic SEO -->
+  <meta name="description"
+        content="EV Software Service Hub: portfolio project showcasing intelligent diagnostics, OTA, telematics, analytics, and integration services for modern electric vehicles." />
+
+  <!-- Favicon (используй своё круглое EV-лого 512x512) -->
+  <link rel="icon" type="image/png" href="./static/images/avatar/preview.jpg" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="./static/css/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" />
+</head>
+
+<body>
+  <!-- fixed header -->
+  <header class="site-nav">
+    <a class="brand" href="#home">
+      <img src="./static/images/avatar/preview_small.jpg"
+           alt="EV Software Service Hub logo" />
+      <span>EV Software Service Hub</span>
+      <small>by ๛Samer Shams๖</small>
+    </a>
+
+    <!-- main menu -->
+    <nav id="mainNav" class="nav-menu" aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#tech">Tech</a>
+      <a href="#contact" class="btn-nav">Contact</a>
+    </nav>
+
+    <!-- burger button -->
+    <button class="nav-toggle" aria-controls="mainNav" aria-expanded="false" aria-label="Open menu">
+      <span class="nav-toggle__bars" aria-hidden="true"></span>
+      <span class="sr-only">Menu</span>
+    </button>
+
+    <!-- overlay -->
+    <div class="nav-scrim" data-close-nav></div>
+  </header>
+
+  <!-- hero slider -->
+  <div id="home" class="carousel" role="region" aria-label="EV models slider">
+
+    <!-- Zeekr 001 -->
+    <div class="item active" data-model="zeekr_001">
+      <div class="bg"></div>
+
+      <div class="info-box">
+        <div class="info-slider">
+          <div class="info-item" style="--i:0;">
+            <h2>Zeekr 001</h2>
+            <p>
+              Intelligent EV fastback platform with advanced driver-assistance.
+              Here we showcase diagnostics APIs, OTA orchestration, and health monitoring for premium EVs.
+            </p>
+            <a href="#" class="btn" data-open-modal>View service details</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="img-box">
+        <div class="img-slider">
+          <div class="img-item" style="--i:0;">
+            <img src="./static/images/zeekr_001.png"
+                 fetchpriority="high"
+                 decoding="async"
+                 alt="Zeekr 001 electric vehicle" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Li 9 Ultra -->
+    <div class="item" data-model="li_9_ultra">
+      <div class="bg"></div>
+
+      <div class="info-box">
+        <div class="info-slider">
+          <div class="info-item" style="--i:1;">
+            <h2>Li 9 Ultra</h2>
+            <p>
+              Hybrid intelligent control system demo: telemetry pipeline, event logging,
+              remote configuration, and secure access for mixed powertrain platforms.
+            </p>
+            <a href="#" class="btn" data-open-modal>View service details</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="img-box">
+        <div class="img-slider">
+          <div class="img-item" style="--i:1;">
+            <img src="./static/images/li_9_ultra.png"
+                 loading="lazy" decoding="async"
+                 alt="Li 9 Ultra EV/Hybrid SUV" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BYD Yuan UP -->
+    <div class="item" data-model="byd_yuan_up_smart">
+      <div class="bg"></div>
+
+      <div class="info-box">
+        <div class="info-slider">
+          <div class="info-item" style="--i:2;">
+            <h2>BYD Yuan UP 2025</h2>
+            <p>
+              Compact city EV as a sandbox for fleet APIs: charging management,
+              trip analytics, and integration with backend services built on Python.
+            </p>
+            <a href="#" class="btn" data-open-modal>View service details</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="img-box">
+        <div class="img-slider">
+          <div class="img-item" style="--i:2;">
+            <img src="./static/images/byd_yuan_up_smart.png"
+                 loading="lazy" decoding="async"
+                 alt="BYD Yuan UP electric SUV" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Voyah Free -->
+    <div class="item" data-model="voyah_free_apollo_tech_hybrid">
+      <div class="bg"></div>
+
+      <div class="info-box">
+        <div class="info-slider">
+          <div class="info-item" style="--i:3;">
+            <h2>Voyah Free Apollo Tech</h2>
+            <p>
+              Premium SUV scenario: secure remote diagnostics, over-the-air firmware flow,
+              and real-time dashboards for high-end EV platforms.
+            </p>
+            <a href="#" class="btn" data-open-modal>View service details</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="img-box">
+        <div class="img-slider">
+          <div class="img-item" style="--i:3;">
+            <img src="./static/images/voyah_free_apollo_tech_hybrid.png"
+                 loading="lazy" decoding="async"
+                 alt="Voyah Free Apollo Tech Hybrid" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Leapmotor C16 -->
+    <div class="item" data-model="leapmotor_C16_hybrid">
+      <div class="bg"></div>
+
+      <div class="info-box">
+        <div class="info-slider">
+          <div class="info-item" style="--i:4;">
+            <h2>Leapmotor C16 Hybrid</h2>
+            <p>
+              Demonstration of scalable EV microservices: auth, telemetry ingestion,
+              alerting, and role-based access for service centers.
+            </p>
+            <a href="#" class="btn" data-open-modal>View service details</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="img-box">
+        <div class="img-slider">
+          <div class="img-item" style="--i:4;">
+            <img src="./static/images/leapmotor_C16_hybrid.png"
+                 loading="lazy" decoding="async"
+                 alt="Leapmotor C16 Hybrid SUV" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Avatr 12 -->
+    <div class="item" data-model="huawei_avatr_12_gibrid_ultra">
+      <div class="bg"></div>
+
+      <div class="info-box">
+        <div class="info-slider">
+          <div class="info-item" style="--i:5;">
+            <h2>Avatr 12 Ultra</h2>
+            <p>
+              Flagship EV sedan: AI-assisted diagnostics, predictive maintenance,
+              integration with cloud services and mobile apps — full-stack demo.
+            </p>
+            <a href="#" class="btn" data-open-modal>View service details</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="img-box">
+        <div class="img-slider">
+          <div class="img-item" style="--i:5;">
+            <img src="./static/images/huawei_avatr_12_gibrid_ultra.png"
+                 loading="lazy" decoding="async"
+                 alt="Avatr 12 electric sedan" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- slider avatars -->
+    <ul class="avatar" aria-label="Choose EV model">
+      <li class="selected">
+        <img loading="lazy" src="./static/images/avatar/avatar_zeekr_001.png" alt="Zeekr 001" />
+      </li>
+      <li>
+        <img loading="lazy" src="./static/images/avatar/avatar_li_9_ultra.png" alt="Li 9 Ultra" />
+      </li>
+      <li>
+        <img loading="lazy" src="./static/images/avatar/avatar_byd_yuan_up_smart.png" alt="BYD Yuan UP" />
+      </li>
+      <li>
+        <img loading="lazy" src="./static/images/avatar/avatar_voyah_free_apollo_tech_hybrid.png" alt="Voyah Free Apollo Tech" />
+      </li>
+      <li>
+        <img loading="lazy" src="./static/images/avatar/avatar_leapmotor_C16_hybrid.png" alt="Leapmotor C16 Hybrid" />
+      </li>
+      <li>
+        <img loading="lazy" src="./static/images/avatar/avatar_huawei_avatr_12_gibrid_ultra.png" alt="Avatr 12 Ultra" />
+      </li>
+    </ul>
+
+    <canvas id="fxStars" aria-hidden="true"></canvas>
+  </div>
+
+  <main>
+    <section id="tech">
+      <h2>Tech stack</h2>
+      <ul>
+        <li>HTML5 + CSS3 (custom properties, <code>clamp()</code>, viewport units, safe-area insets)</li>
+        <li><strong>Responsive layout:</strong> mobile-first, burger menu with overlay, adaptive slider & avatars</li>
+        <li>Vanilla JavaScript: slider engine, modal system, navigation toggle</li>
+        <li>Accessibility: ARIA roles, keyboard navigation, focus states, ESC/overlay close</li>
+        <li>Performance: lazy-loading images, <code>decoding="async"</code>, optimized assets</li>
+        <li>SEO & Sharing: canonical URL, Open Graph/Twitter cards, semantic content</li>
+        <li>Ready to integrate with:
+          Python/FastAPI microservices for telemetry, diagnostics, OTA management, analytics dashboards.
+        </li>
+        <li>Hosting/CI: GitHub Pages + GitHub Actions (<code>deploy-pages</code>)</li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>
+        Interested in EV software, diagnostic tools, or portfolio collaboration?
+        Reach out using any channel below.
+      </p>
+
+      <ul class="socials">
+        <li>
+          <a href="https://t.me/Mr_Shams_1986" target="_blank" rel="noopener noreferrer"
+             aria-label="Telegram" title="Telegram" class="social">
+            <i class="ri-telegram-fill" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li>
+          <a href="mailto:sammertime763@gmail.com"
+             aria-label="Email" title="Email" class="social">
+            <i class="ri-mail-fill" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/Mr-Shams86" target="_blank" rel="noopener noreferrer"
+             aria-label="GitHub" title="GitHub" class="social">
+            <i class="ri-github-fill" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/samer-shamsi" target="_blank" rel="noopener noreferrer"
+             aria-label="LinkedIn" title="LinkedIn" class="social">
+            <i class="ri-linkedin-box-fill" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.facebook.com/share/15zgacsnkz/" target="_blank" rel="noopener noreferrer"
+             aria-label="Facebook" title="Facebook" class="social">
+            <i class="ri-facebook-circle-fill" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/samer.shams.a.g?igsh=YjJncm9lYTFqZmJ5"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="Instagram" title="Instagram" class="social">
+            <i class="ri-instagram-line" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://wa.me/qr/IAJFKAK4P5WQF1" target="_blank" rel="noopener noreferrer"
+             aria-label="WhatsApp" title="WhatsApp" class="social">
+            <i class="ri-whatsapp-line" aria-hidden="true"></i>
+          </a>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- Modal -->
+  <div class="modal" id="infoModal" aria-hidden="true">
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal__close" aria-label="Close" data-close-modal>&times;</button>
+      <h3 id="modalTitle"></h3>
+      <div id="modalBody"></div>
+      <a id="modalSource" class="modal__link" href="#" target="_blank" rel="noopener">
+        Learn more
+      </a>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="./static/js/script.js" defer></script>
+</body>
+</html>
