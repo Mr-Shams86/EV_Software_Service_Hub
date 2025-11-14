@@ -8,6 +8,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![Made by Samer Shams](https://img.shields.io/badge/Made_by-Samer_Shamse-red.svg)](https://github.com/Mr-Shams86)
 
+---
 
 ## 🚗 **Описание проекта**
 
@@ -126,6 +127,8 @@ EV Software Service Hub — это **фронтенд-витрина для бу
 
 Результат — после успешного билда статус в README обновляется на
 
+---
+
 # .github/workflows/pages.yml (фрагмент)
 on:
   push:
@@ -152,6 +155,7 @@ jobs:
       - uses: actions/deploy-pages@v4
 
 ---
+
 ## 🚀 Преимущества
 
 Полная автоматизация — ни одной ручной загрузки файлов.
