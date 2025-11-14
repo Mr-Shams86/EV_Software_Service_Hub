@@ -3,6 +3,12 @@
 
 # ⚡️ EV Software Service Hub
 
+[![Deploy status](https://github.com/Mr-Shams86/EV_Software_Service_Hub/actions/workflows/pages.yml/badge.svg)](https://github.com/Mr-Shams86/EV_Software_Service_Hub/actions/workflows/pages.yml)
+[![GitHub Pages](https://img.shields.io/badge/🚀_Live-Demo-blueviolet?style=flat&logo=github)](https://mr-shams86.github.io/EV_Software_Service_Hub/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![Made by Samer Shams](https://img.shields.io/badge/Made_by-Samer_Shamse-red.svg)](https://github.com/Mr-Shams86)
+
+
 ## 🚗 **Описание проекта**
 
 **EV Software Service Hub** — это интерактивный демо-сайт и слайдер, посвящённый современным интеллектуальным автомобилям и цифровым решениям для них.
