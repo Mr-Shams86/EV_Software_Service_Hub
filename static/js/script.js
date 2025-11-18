@@ -247,29 +247,54 @@ if (modal) {
   const header = document.querySelector('.site-nav');
   const toggle = header?.querySelector('.nav-toggle');
   const scrim  = header?.querySelector('.nav-scrim');
-  const links  = header?.querySelectorAll('.nav-menu a');
+  const menu   = header?.querySelector('.nav-menu');
+  const links  = menu?.querySelectorAll('a');
 
-  if (!header || !toggle) return;
+  if (!header || !toggle || !menu) return;
 
   function setOpen(isOpen) {
     header.classList.toggle('open', isOpen);
     toggle.setAttribute('aria-expanded', String(isOpen));
     toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
-
-    const lock = isOpen || (modal && modal.classList.contains('open'));
-    document.body.classList.toggle('no-scroll', lock);
+    // document.body.classList.toggle('no-scroll', isOpen);
   }
 
-  toggle.addEventListener('click', () => {
+  ['pointerdown','touchstart'].forEach(evt => {
+    toggle.addEventListener(evt, (e) => {
+      e.stopPropagation();
+    }, { passive: true });
+  });
+
+  // Клик/тап по бургеру — открыть/закрыть
+  toggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    e.preventDefault();
     setOpen(!header.classList.contains('open'));
   });
 
+  // Клик по подложке — закрыть
   scrim?.addEventListener('click', () => setOpen(false));
-  links?.forEach(a => a.addEventListener('click', () => setOpen(false)));
 
+  // ESC — закрыть
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && header.classList.contains('open')) {
       setOpen(false);
     }
   });
+
+  // Клик по пункту меню: закрыть, потом перейти
+  links?.forEach(a => {
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href');
+      if (!href || !href.startsWith('#')) return;
+
+      e.preventDefault();
+      setOpen(false);
+      requestAnimationFrame(() => {
+        location.hash = href;
+      });
+    });
+  });
 })();
+
+

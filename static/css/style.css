@@ -895,6 +895,11 @@ main ul{
     --nav-h: 96px;
   }
 
+  .site-nav .brand {
+    touch-action: manipulation;
+    pointer-events: none;
+  }
+
   .site-nav{
     padding-block:12px 14px;
     inset:12px 16px auto 16px;
