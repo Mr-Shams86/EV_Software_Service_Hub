@@ -479,7 +479,44 @@ body{
   text-decoration:none;
   opacity:.78;
   font-size:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
 }
+
+.site-nav nav a i {
+  font-size:18px;
+  line-height:1;
+}
+
+.site-nav nav a::after{
+  content: attr(aria-label); /* берём текст из aria-label */
+  position:absolute;
+  top: 130%;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:11px;
+  color:#ffd5e1;
+  opacity:0;
+  pointer-events:none;
+  white-space:nowrap;
+  transition: opacity .18s ease, transform .18s ease;
+}
+
+/* показываем при hover/focus */
+.site-nav nav a:hover::after,
+.site-nav nav a:focus-visible::after{
+  opacity:1;
+  transform:translate(-50%, 2px);
+}
+
+.site-nav nav a:hover,
+.site-nav nav a:focus-visible{
+  opacity:1;
+  color:var(--ares-red-bright);
+}
+
 .site-nav nav a:hover{
   opacity:1;
   color:var(--ares-red-bright);
@@ -494,6 +531,14 @@ body{
   padding:8px 14px;
   border:1px solid rgba(255,23,68,.6);
   border-radius:999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(8,0,10,.95);
+  color:var(--ares-red-bright);
+  text-decoration:none;
+  font-size:14px;
+  transition:background-color .2s ease, border-color .2s ease, color .2s ease;
 }
 
 /* Бургер по умолчанию скрыт; включаем на мобиле */
