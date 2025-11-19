@@ -252,7 +252,7 @@ body{
 .item[data-model="leapmotor_C16_hybrid"]         { --car-scale: 1.25; --car-translate-y: -2px; }
 
 /* Li Auto L9 Ultra */
-.item[data-model="li_9_ultra"]                   { --car-scale: 1.0.1; --car-translate-y: -2px; }
+.item[data-model="li_9_ultra"]                   { --car-scale: 1.22; --car-translate-y: -2px; }
 
 
 /* === АВАТАРЫ (ТАБЛО СПРАВА) ============================= */
@@ -730,8 +730,8 @@ main ul{
   }
 
   .item .img-box{
-    left:52%;
-    top:54%;
+    left:60%;
+    top:58%;
     transform:translate(-50%, -50%);
   }
 }
@@ -784,35 +784,35 @@ main ul{
 
   /* точечные тюнинги */
   .item[data-model="li_9_ultra"]{
-    --car-scale: 1.15;        
+    --car-scale: 1.30;        
     --car-translate-y: 0px;
   }
   .item[data-model="huawei_avatr_12_gibrid_ultra"]{
-    --car-scale: 1.35;        
+    --car-scale: 1.40;        
     --car-translate-y: -2px;
   }
   .item[data-model="zeekr_001"]{
-    --car-scale: 1.25;
-    --car-translate-y: 0px;
-  }
-
-  .item[data-model="byd_yuan_up_smart"]{
-    --car-scale: 1.25;
-    --car-translate-y: 0px;
-  }
-
-  .item[data-model="leapmotor_C16_hybrid"]{
-    --car-scale: 1.15;
-    --car-translate-y: 0px;
-  }
-
-  .item[data-model="voyah_free_apollo_tech_hybrid"]{
     --car-scale: 1.35;
     --car-translate-y: 0px;
   }
 
+  .item[data-model="byd_yuan_up_smart"]{
+    --car-scale: 1.40;
+    --car-translate-y: 0px;
+  }
+
+  .item[data-model="leapmotor_C16_hybrid"]{
+    --car-scale: 1.32;
+    --car-translate-y: 0px;
+  }
+
+  .item[data-model="voyah_free_apollo_tech_hybrid"]{
+    --car-scale: 1.45;
+    --car-translate-y: 0px;
+  }
+
   .item .img-box{
-    left:50%;
+    left:45%;
     top:60%;
     transform:translate(-50%, -50%);
   }
