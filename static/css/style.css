@@ -730,7 +730,7 @@ main ul{
   }
 
   .item .img-box{
-    left:60%;
+    left:58%;
     top:58%;
     transform:translate(-50%, -50%);
   }
@@ -802,7 +802,7 @@ main ul{
   }
 
   .item[data-model="leapmotor_C16_hybrid"]{
-    --car-scale: 1.32;
+    --car-scale: 1.30;
     --car-translate-y: 0px;
   }
 
