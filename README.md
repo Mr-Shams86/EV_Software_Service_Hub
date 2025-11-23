@@ -10,99 +10,98 @@
 
 ---
 
-## 🚗 **Описание проекта**
+## 🚗 **Project Description**
 
-**EV Software Service Hub** — это интерактивный демо-сайт и слайдер, посвящённый современным интеллектуальным автомобилям и цифровым решениям для них.
-Проект демонстрирует концепции **AI-ассистированного обслуживания, предиктивной диагностики, интеграции с облаком и мобильными приложениями.**
+**EV Software Service Hub** — is an interactive demo website and slider dedicated to modern smart vehicles and digital solutions for them.
+The project showcases concepts of AI-assisted maintenance, predictive diagnostics, cloud integration, and mobile app connectivity.
 
-Каждый слайд представляет **уникальную модель электромобиля**, с описанием его технологий, визуально детализированной иллюстрацией и возможностью перейти к подробностям.
-Справа — панель аватаров-миниатюр для быстрой навигации между моделями.
+Each slide presents a unique electric vehicle model with a description of its technologies, a visually detailed illustration, and the option to view more details.
+On the right side, there is a panel of avatar thumbnails for quick navigation between models.
 
-Фон — адаптивный неон-градиент с лёгким свечением, создающий атмосферу технологичного шоу-рума.
-Сайт полностью статический, оптимизирован для GitHub Pages и мобильных устройств.
-
----
-
-## 🧩 **Представленные EV-модели**
-
-* ⚙️ **Zeekr 001** — спортивный shooting brake с полной цифровой экосистемой
-* 🚐 **LI 9 Ultra** — премиальный минивэн с автопилотом уровня L3
-* 🚙 **BYD Yuan UP Smart+** — компактный EV с интеллектуальной системой помощи водителю
-* 🚗 **Voyah Free Apollo Tech Hybrid** — мощный гибрид с продвинутыми функциями OTA
-* 🚘 **Leapmotor C16 Hybrid** — семейный кроссовер с ассистентом на основе нейросетей
-* ⚡ **Avatr 12 Ultra** — флагманский AI-седан с интеграцией cloud-сервисов
-
+The background is an adaptive neon gradient with a soft glow, creating the atmosphere of a high-tech showroom.
+The website is fully static, optimized for GitHub Pages and mobile devices.
 
 ---
 
-## 🔧 **Функциональные возможности**
+## 🧩 **Featured EV Models*
 
-* Переключение автомобилей по аватарам с плавной анимацией
-* Адаптивная верстка: корректное отображение на десктопах, планшетах и мобильных
-* Кнопка **“View service details”** открывает модальное окно с краткой информацией
-* Гладкая анимация появления изображения активной модели
-* Эффект «светового пятна» под машиной для глубины и реалистичности
-* Поддержка prefers-reduced-motion (уменьшение интенсивности эффектов)
-* Полная доступность (ARIA-атрибуты, клавиатурная навигация, ESC-закрытие окон)
+* ⚙️ **Zeekr 001** — a sporty shooting brake with a full digital ecosystem
+* 🚐 **LI 9 Ultra** — a premium minivan with Level 3 autopilot
+* 🚙 **BYD Yuan UP Smart+** — a compact EV with an intelligent driver assistance system
+* 🚗 **Voyah Free Apollo Tech Hybrid** — a powerful hybrid with advanced OTA features
+* 🚘 **Leapmotor C16 Hybrid** — a family crossover with a neural-network-based assistant
+* ⚡ **Avatr 12 Ultra** — a flagship AI sedan with integrated cloud services
 
----
-
-## 🧠 **Концепт и философия**
-
-EV Software Service Hub — это **фронтенд-витрина для будущего автомобильных цифровых платформ**.
-Она иллюстрирует подход, в котором автомобиль становится узлом экосистемы:
-облако ↔ AI-диагностика ↔ мобильное приложение ↔ пользователь.
-
-Сайт можно использовать:
-
-* как **портфолио-демо** для full-stack / backend / IoT-проектов,
-* как **вдохновение для UI/UX** интерфейсов автомобильных приложений,
-* как **витрину бренда или AI-платформы.**
 
 ---
 
-## 🛠️ **Технологии**
+## 🔧 **Features**
+
+* Smooth switching between cars via avatar navigation
+* Responsive design for desktops, tablets, and mobile devices
+* “View service details” button opens a modal window with brief information
+* Smooth fade-in animation for the active vehicle
+* Light “glow spot” effect under the car for depth and realism
+* prefers-reduced-motion support (reduced animation intensity)
+* Full accessibility (ARIA attributes, keyboard navigation, ESC to close modals)
+
+---
+
+## 🧠 **Concept & Vision**
+
+* EV Software Service Hub is a frontend showcase for the future of digital automotive platforms.
+* It illustrates an approach in which a car becomes a node in an ecosystem:
+* Cloud ↔ AI diagnostics ↔ Mobile app ↔ User
+* This website can be used as:
+* a portfolio demo for full-stack / backend / IoT projects
+* UI/UX inspiration for automotive applications
+* a showcase for a vehicle or AI platform brand
+
+---
+
+## 🛠️ **Technologies**
 
 **Frontend:**
 
-* HTML5 + CSS3 (адаптив, эффекты света и глубины)
-* Vanilla JS — слайдер, модалка, бургер-меню
+* HTML5 + CSS3 (responsive layout, light and depth effects)
+* Vanilla JavaScript — slider, modal, burger menu
 * Google Fonts (Montserrat), Remix Icons
-* Анимации на `transform`, `filter`, `opacity`
-* Prefers-reduced-motion — оптимизация под доступность
+* Animations based on transform, filter, opacity
+* prefers-reduced-motion support for accessibility
 
 **DevOps / Deploy:**
 
-* GitHub Pages — статический хостинг
-* GitHub Actions — автоматический деплой (`.github/workflows/pages.yml`)
-* `.nojekyll` — отключение Jekyll для корректной работы `/static`
+* GitHub Pages — static hosting
+* GitHub Actions — automatic deployment (.github/workflows/pages.yml)
+* .nojekyll — disables Jekyll for correct /static handling
 
 **Security:**
 
-* Все ассеты локальные (нет сторонних трекеров)
-* CSP и `rel="noopener noreferrer"` рекомендуется для внешних ссылок
-* Headers such as X-Content-Type-Options and X-Frame-Options recommended for production.
+* All assets are local (no third-party trackers)
+* CSP and rel="noopener noreferrer" are recommended for external links
+* Security headers such as X-Content-Type-Options and X-Frame-Options are recommended for production
 
 ---
 
-## 📁 **Структура проекта**
+## 📁 **Project Structure**
 
 ```
 .
-├── docker-compose.yml         🚢 Контейнеризация и локальный запуск проекта
-├── Dockerfile                 🛠️ Docker-образ для сборки фронтенда
-├── index.html                 🖥️ Главная страница сайта (слайдер + UI)
-├── README.md                  📘 Документация проекта
-├── requirements.txt           📦 Список зависимостей (если используется серверный контейнер)
-├── static/                    🎨 Статичные файлы проекта
+├── docker-compose.yml         🚢 Container orchestration & local run
+├── Dockerfile                 🛠️ Docker image for frontend build
+├── index.html                 🖥️ Main page (slider + UI)
+├── README.md                  📘 Project documentation
+├── requirements.txt           📦 Dependencies (if server container is used)
+├── static/                    🎨 Static assets
 │   ├── css/
-│   │   └── style.css          🎛️ Основные стили, адаптив, эффекты
+│   │   └── style.css          🎛️ Main styles, responsive layout, effects
 │   ├── images/
-│   │   └── avatar/            🚗 Аватары автомобилей для мини-слайдера
+│   │   └── avatar/            🚗 Car avatars for the mini-slider
 │   └── js/
-│       └── script.js          ⚙️ Слайдер, модалки, бургер-меню, логика UI
-├── structure.txt              🗂️ Чертёж структуры (служебный файл)
-└── templates/                 🧩 Дополнительные HTML-шаблоны (если нужны)
+│       └── script.js          ⚙️ Slider, modals, burger menu, UI logic
+├── structure.txt              🗂️ Project structure blueprint
+└── templates/                 🧩 Additional HTML templates (if needed)
+
 
 ```
 
@@ -110,25 +109,25 @@ EV Software Service Hub — это **фронтенд-витрина для бу
 
 ## ⚙️ CI/CD Workflow Overview
 
-Проект полностью автоматизирован с помощью GitHub Actions, обеспечивая стабильный и прозрачный процесс публикации.
-Каждый коммит, попадающий в ветку main, автоматически инициирует билд и деплой на GitHub Pages.
+The project is fully automated using GitHub Actions, ensuring a stable and transparent publishing process.
+Every commit to the main branch automatically triggers a build and deployment to GitHub Pages.
 
 ---
 
-## 🔄 Как работает пайплайн
+## 🔄 How the Pipeline Works
 
-Событие запуска — пуш в ветку main или ручной запуск (workflow_dispatch).
+* Trigger — push to the main branch or manual run (workflow_dispatch)
 
-Сборка — действие actions/checkout@v4 получает код проекта.
-Затем артефакт (HTML, CSS, JS, assets) архивируется через actions/upload-pages-artifact@v3.
+* Build — actions/checkout@v4 pulls the repository.
+* The artifact (HTML, CSS, JS, assets) is packaged using actions/upload-pages-artifact@v3.
 
-Деплой — действие actions/deploy-pages@v4 автоматически размещает сайт на GitHub Pages.
+* Deploy — actions/deploy-pages@v4 publishes the site to GitHub Pages.
 
-Результат — после успешного билда статус в README обновляется на
+* Result — after a successful build, the status badge in the README is updated automatically.
 
 ---
 
-### 📜 .github/workflows/pages.yml (фрагмент)
+### 📜 .github/workflows/pages.yml (fragment)
 ```yaml
 on:
   push:
@@ -157,38 +156,38 @@ jobs:
 ```
 ---
 
-## 🚀 Преимущества
+## 🚀 Advantages
 
-Полная автоматизация — ни одной ручной загрузки файлов.
+* Full automation — no manual file uploads
 
-Гарантированная консистентность между репозиторием и опубликованной версией.
+* Guaranteed consistency between repository and live version
 
-Мгновенная проверка статуса через бейджи в README.
+* Instant status validation via README badges
 
-Zero downtime — новая версия сайта появляется моментально после успешного билда.
+* Zero downtime — a new version goes live immediately after a successful build
 
 ---
 
-## 🌐 **Ссылки**
+## 🌐 **Links**
 
 * 🔗 **Live Demo:** [EV Software Service Hub](https://mr-shams86.github.io/EV_Software_Service_Hub/)
 * 💾 **GitHub Repository:** [Mr-Shams86/EV_Software_Service_Hub](https://github.com/Mr-Shams86/EV_Software_Service_Hub)
 
 ---
 
-## 👤 **Контакты**
+## 👤 **Contacts**
 
 * 📧 **Email:** [sammertime763@gmail.com](mailto:sammertime763@gmail.com)
 * 💬 **Telegram:** [@Mr_Shams_1986](https://t.me/Mr_Shams_1986)
 
 ---
 
-## 🪪 **Лицензия**
+## 🪪 **License**
 
 **MIT License**
 
-Все изображения автомобилей используются в образовательных и демонстрационных целях.
-Автор проекта: **Samer Shams** — разработчик full-stack решений для AI-платформ и веб-сервисов.
+All car images are used for educational and demonstration purposes.
+Project author: ๛Samer Shams๖ — full-stack developer focused on AI-powered platforms and web services.
 
 ---
 
